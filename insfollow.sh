@@ -23,11 +23,12 @@ echo -e "\e[1;91m  ║ \e[1;92m│ │ │└──┐\e[1;91m╠═╣ \e[1;92m
 echo -e "\e[1;91m  ║ \e[1;92m┘ └─┘└──┘\e[1;91m║   \e[1;92m└──┘┴──┘┴──┘└──┘└─┴─┘"
 echo -e "\e[1;91m ═╩═\e[1;92m         \e[1;91m╩"
 echo ""
-echo -e "\e[1;91m [+] YouTube: \e[1;92mTermuxProfessor"
-echo -e "\e[1;91m [+] Github: \e[1;92mtermuxprofessor\e[1;97m"
+echo -e "\e[1;91m [+] YouTube: \e[1;92mTermuxProfessorYT"
+echo -e "\e[1;91m [+] Github: \e[1;92mtermuxprofessor"
+echo -e "\e[1;91m [+] Instagram: \e[1;92mtermuxprofessor\e[1;97r"
 echo ""
 
-}     
+}
 
 login_user() {
 
@@ -57,7 +58,7 @@ fi
 
 else
 
-read -s -p $'\e[1;31m[\e[0m\e[1;77m*\e[0m\e[1;31m]\e[0m\e[1;93m Password: \e[0m' pass
+read -p $'\e[1;31m[\e[0m\e[1;77m*\e[0m\e[1;31m]\e[0m\e[1;93m Password: \e[0m' pass
 printf "\n"
 data='{"phone_id":"'$phone'", "_csrftoken":"'$var2'", "username":"'$user'", "guid":"'$guid'", "device_id":"'$device'", "password":"'$pass'", "login_attempt_count":"0"}'
 
@@ -69,7 +70,13 @@ useragent='User-Agent: "Instagram 10.26.0 Android (18/4.3; 320dpi; 720x1280; Xia
 printf "\e[1;77m[\e[0m\e[1;92m+\e[0m\e[1;77m] Trying to login as\e[0m\e[1;93m %s\e[0m\n" $user
 IFS=$'\n'
 var=$(curl -c cookie.$user -d "ig_sig_key_version=4&signed_body=$hmac.$data" -s --user-agent 'User-Agent: "Instagram 10.26.0 Android (18/4.3; 320dpi; 720x1280; Xiaomi; HM 1SW; armani; qcom; en_US)"' -w "\n%{http_code}\n" -H "$header" "https://i.instagram.com/api/v1/accounts/login/" | grep -o "logged_in_user\|challenge\|many tries\|Please wait" | uniq ); 
-if [[ $var == "challenge" ]]; then printf "\e[1;93m\n[!] Challenge required\n" ; exit 1; elif [[ $var == "logged_in_user" ]]; then printf "\e[1;92m \n[+] Login Successful\n" ; elif [[ $var == "Please wait" ]]; then echo "Please wait"; fi; 
+if [[ $var == "challenge" ]]; then printf "\e[1;93m\n[!] Challenge required\n" ; exit 1; elif [[ $var == "logged_in_user" ]]; then printf "\e[1;92m \n[+] Login Successful\n" ; elif [[ $var == "Please wait" ]]; then echo "Please wait"; 
+
+else printf "\e[1;91m\n[-] Error in login your instagram  acccount\n";
+     printf "\e[1;91m\n[*] Check your login credentials\n";
+exit 1;
+
+fi;
 
 fi
 
@@ -128,6 +135,8 @@ check_follow=$(curl -s -L -b cookie.$user -d "ig_sig_key_version=4&signed_body=$
 
 if [[ $check_follow == "" ]]; then
 printf "\n\e[1;93m [!] Error\n"
+printf "\n\e[1;93m [!] You have reached today's following and unfollowing limit\n"
+prinf  "\n\e[1;93m [8] For solve this error don't follow or unfollow any people on instagram for 24 hour, then run this script again and it will works\n"
 exit 1
 else
 printf "\e[1;92mOK\e[0m\n"
@@ -193,6 +202,3 @@ fi
 
 banner
 menu
-
-
-
