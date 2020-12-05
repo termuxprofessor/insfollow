@@ -136,7 +136,7 @@ check_follow=$(curl -s -L -b cookie.$user -d "ig_sig_key_version=4&signed_body=$
 if [[ $check_follow == "" ]]; then
 printf "\n\e[1;93m [!] Error\n"
 printf "\n\e[1;93m [!] You have reached today's following and unfollowing limit\n"
-prinf  "\n\e[1;93m [8] For solve this error don't follow or unfollow any people on instagram for 24 hour, then run this script again and it will works\n"
+printf "\n\e[1;93m [8] For solve this error don't follow or unfollow any people on instagram for 24 hour, then run this script again and it will works\n"
 exit 1
 else
 printf "\e[1;92mOK\e[0m\n"
