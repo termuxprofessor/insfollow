@@ -16,17 +16,18 @@ ig_sig="4f8732eb9ba7d1c8e8897a75d6474d4eb3f5279137431b2aafb71fafe2abe178"
 clear
 
 banner() {
+
 echo ""
+
 echo -e "\e[1;91m ═╦═\e[1;92m┌─┐ ┌┌──┐\e[1;91m╔══╗\e[1;92m┌──┐┬   ┬   ┌──┐┬ ┬ ┬"
+
 echo -e "\e[1;91m  ║ \e[1;92m│ │ ││   \e[1;91m║   \e[1;92m│  ││   │   │  ││ │ │"
+
 echo -e "\e[1;91m  ║ \e[1;92m│ │ │└──┐\e[1;91m╠═╣ \e[1;92m│  ││   │   │  ││ │ │"
+
 echo -e "\e[1;91m  ║ \e[1;92m┘ └─┘└──┘\e[1;91m║   \e[1;92m└──┘┴──┘┴──┘└──┘└─┴─┘"
-echo -e "\e[1;91m ═╩═\e[1;92m         \e[1;91m╩"
-echo ""
-echo -e "\e[1;91m [+] YouTube: \e[1;92mTermuxProfessorYT"
-echo -e "\e[1;91m [+] Github: \e[1;92mtermuxprofessor"
-echo -e "\e[1;91m [+] Instagram: \e[1;92mtermuxprofessor\e[1;97r"
-echo ""
+
+echo -e "\e[1;91m ═╩═\e[1;92m         \e[1;91m╩   by - \e[1;92mTermux Professor"
 
 }
 
